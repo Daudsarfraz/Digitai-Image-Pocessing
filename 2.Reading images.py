@@ -6,4 +6,4 @@ Created on Mon Feb  5 17:51:31 2024
 @author: Dawood Sarfraz
 """
 
-print("Dawood")
+print("2.Reading Images")

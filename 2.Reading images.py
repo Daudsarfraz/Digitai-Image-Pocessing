@@ -5,5 +5,11 @@ Created on Mon Feb  5 17:51:31 2024
 
 @author: Dawood Sarfraz
 """
-
-print("2.Reading Images")
+"""
+Libraries:
+    1: Pillow
+    2: Scikit image
+    4: OpenCV
+    4: Matplotlib
+    
+    """

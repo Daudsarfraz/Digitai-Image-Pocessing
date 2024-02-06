@@ -136,7 +136,7 @@ import matplotlib.pyplot as plt
 
 image6 = cv2.imread("images/horse.jpg", cv2.IMREAD_GRAYSCALE)
 print("Image ", image6)
-
+# plt.imshow(image6) # when open with plt.imshow different bcz opens as BGR not RGB
 cv2.imshow("image1",image6)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

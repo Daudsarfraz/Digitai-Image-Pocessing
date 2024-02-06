@@ -17,15 +17,24 @@ Libraries:
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.image as mtimg
 
 image = Image.open("images/cat.jpg")
 # if use Image.open from pillow it's not Numpy array .If you think you can't do image processing bcz of not Numpy array WRONG. you can do Image processing using Pillow function
 print(type(image))
 image.show()
-print("Formate of Image ", image.format) # will print format of image like jpg, png, tiff etc
+print("Format of Image ", image.format) # will print format of image like jpg, png, tiff etc
 
 # Convert to Numpy
 image1 = np.asanyarray(image)
 print(type(image1))
 plt.imshow(image1)
-print(image1.format)
+# print(image1.format) # Error bcz of Numpy array
+print("Shape", image1.shape)
+
+# Open image using Matplotlib
+image2 = mtimg.imread("images/dog.jpg")
+print("Type ", type(image2))
+print("Size of Image", image2.size) # (x, y, channels) = x * y *channels
+plt.imshow(image2)
+

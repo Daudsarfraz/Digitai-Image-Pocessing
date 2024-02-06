@@ -17,7 +17,6 @@ Libraries:
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.image as mtimg
 
 
 """
@@ -107,7 +106,37 @@ OpenCV can be use for:
     Motion Tracking
     OCR (Optical Character Recognization)
     Segmentation
+
+cv::ImreadModes {
+  cv::IMREAD_UNCHANGED = -1,
+  cv::IMREAD_GRAYSCALE = 0,
+  cv::IMREAD_COLOR = 1,
+  cv::IMREAD_ANYDEPTH = 2,
+  cv::IMREAD_ANYCOLOR = 4,
+  cv::IMREAD_LOAD_GDAL = 8,
+  cv::IMREAD_REDUCED_GRAYSCALE_2 = 16,
+  cv::IMREAD_REDUCED_COLOR_2 = 17,
+  cv::IMREAD_REDUCED_GRAYSCALE_4 = 32,
+  cv::IMREAD_REDUCED_COLOR_4 = 33,
+  cv::IMREAD_REDUCED_GRAYSCALE_8 = 64,
+  cv::IMREAD_REDUCED_COLOR_8 = 65,
+  cv::IMREAD_IGNORE_ORIENTATION = 128
+}
+
+
+In place of cv.IMREAD_GRAYSCALE you can write assigned value as well like 
+image = cv.imread("images/horse.jpg", 0)
 """
+
 print("\nUsing OpenCV \n ")
 
+import cv2
+import matplotlib.pyplot as plt
 
+
+image6 = cv2.imread("images/horse.jpg", cv2.IMREAD_GRAYSCALE)
+print("Image ", image6)
+
+cv2.imshow("image1",image6)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

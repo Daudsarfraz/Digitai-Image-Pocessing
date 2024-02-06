@@ -11,6 +11,7 @@ Libraries:
     2: Scikit image
     4: OpenCV
     4: Matplotlib
+    5: czifile
     
 """
  # !pip install pillow # if not imstalled before
@@ -134,9 +135,16 @@ import cv2
 import matplotlib.pyplot as plt
 
 
-image6 = cv2.imread("images/horse.jpg", cv2.IMREAD_GRAYSCALE)
+image6 = cv2.imread("images/horse.jpg", cv2.IMREAD_UNCHANGED)
+#plt.imshow(image6) # when open with plt.imshow different bcz opens as BGR not RGB
+# Convert color
+plt.imshow(cv2.cvtColor(image6, cv2.COLOR_BGR2RGB))
 print("Image ", image6)
-# plt.imshow(image6) # when open with plt.imshow different bcz opens as BGR not RGB
+
 cv2.imshow("image1",image6)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
+################################
+print("\nUsing czifile \n")

@@ -94,3 +94,20 @@ plt.imshow(float_image4)
 print(float_image4) # will show float values
 print("Minimum Value", float_image4.min())
 print("Maximum Value", float_image4.max())
+
+
+######################################
+"""
+OpenCV can be use for:
+    Live Videos
+    Videos
+    Images
+    Faciacl Detection
+    Object Detection 
+    Motion Tracking
+    OCR (Optical Character Recognization)
+    Segmentation
+"""
+print("\nUsing OpenCV \n ")
+
+

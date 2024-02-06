@@ -12,4 +12,6 @@ Libraries:
     4: OpenCV
     4: Matplotlib
     
-    """
+"""
+ # !pip install pillow # if not imstalled before
+from PIL import Image

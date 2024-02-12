@@ -111,6 +111,7 @@ print("Height of Image", height)
 moon.show()
 
 # Perform Cropping on Moon Image
+
 """
 \````````````````````````````````````````\
 \ * (Left, Upper)                        \
@@ -126,4 +127,12 @@ right = 2500
 bottom = 2000
 cropped = moon.crop((left, upper, bottom, right))
 cropped.save("images/cropped_moon.jpg")
+cropped.show()
+
+
+# Performing copy pasting on images
+lion = Image.open("images/lion.jpg") # opening new image
+copied_image = lion.copy() # coping image 
+cropped.paste(copied_image, (300,300)) # pasting image which is copied
+cropped.save("images/copy_pasted_moon.jpg")
 cropped.show()

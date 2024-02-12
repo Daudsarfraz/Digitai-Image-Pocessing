@@ -36,13 +36,63 @@ print("Height of Image", height)
 print("Channels of Image", height)
 print(image2)
 
-# Here i'm resizing Image
+# Here i'm resizing Orignai Image Not Numpy array converted Image
+
+"""
+Image.resize resizes to the dimensions you define width and Height
+"""
 large_image = image.resize((1500, 1500))
 large_image.save("images/large_cat.jpg")
 print("Size of Image", large_image.size)
 large_image.show()
 
-image.thumbnail((350, 350)) # In thumbnail you can do without resize without assigning to a new variable
-image.save("images/thumbnail_cat.jpg")
-print("Size of Image used Thumbnail", image.size)
+"""
+# In thumbnail you can do without resize without assigning to a new variable
+Image.thumbnail resizes to the largest size that 
+    1. preserves the aspect ratio
+    2. Does not exceed dimensions of the original image
+    3. Does not exceed the size specified in the arguments of thumbnail
+"""
+
+image.thumbnail((350, 450))  # Large size
+image.save("images/large_thumbnail_cat.jpg")
+print("Large size of Image used Thumbnail", image.size)
 image.show()
+
+
+image.thumbnail((35, 50))  # Smal Size
+image.save("images/small_thumbnail_cat.jpg")
+print("Small size of Image used Thumbnail", image.size)
+image.show()
+
+
+# Now i'm using using Numpy array Converted Image2
+
+"""
+Image.resize resizes to the dimensions you define width and Height
+"""
+image3 = Image.fromarray(image2) # Converting Numpy Arrat to back into Image
+print("Type of Image after Back to Image", image3)
+large_image3 = image3.resize((1500, 1500))
+large_image3.save("images/large_image2_cat.jpg") # 
+print("Size of Image", large_image3.size)
+large_image3.show()
+
+"""
+# In thumbnail you can do without resize without assigning to a new variable
+Image.thumbnail resizes to the largest size that 
+    1. preserves the aspect ratio
+    2. Does not exceed dimensions of the original image
+    3. Does not exceed the size specified in the arguments of thumbnail
+"""
+
+image3.thumbnail((350, 450))  # Large size
+image3.save("images/thumbnail_large_cat.jpg")
+print("Large size of Image used Thumbnail", image3.size)
+image3.show()
+
+
+image3.thumbnail((35, 50))  # Smal Size
+image3.save("images/thumbnail_small_cat.jpg")
+print("Small size of Image used Thumbnail", image3.size)
+image3.show()

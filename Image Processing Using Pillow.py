@@ -80,6 +80,7 @@ large_image3.show()
 
 """
 # In thumbnail you can do without resize without assigning to a new variable
+
 Image.thumbnail resizes to the largest size that 
     1. preserves the aspect ratio
     2. Does not exceed dimensions of the original image
@@ -98,4 +99,31 @@ print("Small size of Image used Thumbnail", image3.size)
 image3.show()
 
 
-moon = Image.open("images/earth.jpg")
+moon = Image.open("images/moon.jpg")
+print(type(moon)) # In pillow image is NOT an array but can convert
+print("Type of Image", type(moon))
+print("Mode of Image", moon.mode)
+print("Format of Image ", moon.format) # will print format of image like jpg, png, tiff etc
+print("Size of Image", moon.size)
+width, height = moon.size
+print("Width of Image", width)
+print("Height of Image", height)
+moon.show()
+
+# Perform Cropping on Moon Image
+"""
+\````````````````````````````````````````\
+\ * (Left, Upper)                        \
+\                                        \
+\                                        \
+\                                        \
+\                    (bottom, right) *   \
+\________________________________________\   
+"""
+left = 900
+upper = 900
+right = 2500
+bottom = 2000
+cropped = moon.crop((left, upper, bottom, right))
+cropped.save("images/cropped_moon.jpg")
+cropped.show()

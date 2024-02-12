@@ -60,7 +60,7 @@ print("Large size of Image used Thumbnail", image.size)
 image.show()
 
 
-image.thumbnail((35, 50))  # Smal Size
+image.thumbnail((35, 50))  # Small Size
 image.save("images/small_thumbnail_cat.jpg")
 print("Small size of Image used Thumbnail", image.size)
 image.show()
@@ -92,7 +92,10 @@ print("Large size of Image used Thumbnail", image3.size)
 image3.show()
 
 
-image3.thumbnail((35, 50))  # Smal Size
+image3.thumbnail((35, 50))  # Small Size
 image3.save("images/thumbnail_small_cat.jpg")
 print("Small size of Image used Thumbnail", image3.size)
 image3.show()
+
+
+moon = Image.open("images/earth.jpg")

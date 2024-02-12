@@ -9,6 +9,8 @@ Created on Mon Feb 12 19:13:16 2024
  Here i'm exploring some image processing Functions
      1. Resize
      2. Thumbnail
+     3. Copy pasting
+     4. Rotation
 """
 from PIL import Image
 import numpy as np
@@ -127,12 +129,22 @@ right = 2500
 bottom = 2000
 cropped = moon.crop((left, upper, bottom, right))
 cropped.save("images/cropped_moon.jpg")
+print("Size of Cropped image " , cropped.size)
 cropped.show()
 
 
 # Performing copy pasting on images
 lion = Image.open("images/lion.jpg") # opening new image
 copied_image = lion.copy() # coping image 
-cropped.paste(copied_image, (300,300)) # pasting image which is copied
+cropped.paste(copied_image, (300,200)) # pasting image which is copied
 cropped.save("images/copy_pasted_moon.jpg")
 cropped.show()
+
+
+# Rotaion of images
+rotated_image = cropped.rotate(45) # Will lost edges mean data lose
+rotated_image.show()
+
+# Rotaion of images
+rotated_image = cropped.rotate(45, expand = True) # Will NOT lost edges mean mean NO data lose
+rotated_image.show()

@@ -19,7 +19,6 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 """
 if use Image.open from pillow it's not Numpy array .
 If you think you can't do image processing bcz of not Numpy array WRONG.
@@ -148,3 +147,7 @@ cv2.destroyAllWindows()
 
 ################################
 print("\nUsing czifile \n")
+import czifile as cz 
+image7 = cz.imread("images/random.czi")
+print(image7.shape)
+plt.imshow(image7)

@@ -11,11 +11,12 @@ Created on Mon Feb 12 19:13:16 2024
      2. Thumbnail
      3. Copy pasting
      4. Rotation
-     5. Flipping
+     5. cropping
+     6. Flipping
+     7. working with all images in existing directory
 """
 from PIL import Image
 import numpy as np
-import glob
 
 
 print("\nUsing Pillow \n ")
@@ -184,16 +185,39 @@ moon2.show()
 # changing color
 
 lion = Image.open("images/lion.jpg")
-gbr_lion = lion.convert("GBR") # will change to Gray scale
-gbr_lion.save("images/gbr_lion.jpg") # will give error
-gbr_lion.show()
+#gbr_lion = lion.convert("GBR") # will change to Gray scale
+#gbr_lion.save("images/gbr_lion.jpg") # will give error
+#gbr_lion.show()
 
 
 gbr_lion = lion.quantize(colors=256, method=2).convert('RGB')
 gbr_lion.save("images/gbr_lion.jpg") # solution of above error
 gbr_lion.show()
 
-
+"""
 # if you want to automate your task mean automate working with images
+"""
+
+import os
+import glob
 
 
+path = "images/*.jpg" # im specifying the file format by add .jpg after *
+for file in glob.glob(path): 
+    print("File Name is {} ".format(file)) # here i'm just print file names
+
+
+
+# if folder not exists create new and save processed images
+path = "images/*.jpg"
+if not os.path.exists("processed_images"):
+    os.makedirs("processed_images")
+else:
+    print("Folder exists")
+    
+for index, file in enumerate(glob.glob(path)): # Here i'm getting index of file
+    print("File {} Name is {}".format(index, file))
+    imge = Image.open(file)
+    rotated_image = imge.rotate(45, expand=True) # Will we lost edges mean data lose
+    rotated_image.save("processed_images/{}".format(index), "PNG")
+    rotated_image.show()

@@ -31,7 +31,6 @@ width, height = image.size
 print("Width of Image", width)
 print("Height of Image", height)
 
-
 # After converting into Numpy array
 image2 = np.array(image)
 print("Type of Image1", type(image2))

@@ -11,9 +11,12 @@ Created on Mon Feb 12 19:13:16 2024
      2. Thumbnail
      3. Copy pasting
      4. Rotation
+     5. Flipping
 """
 from PIL import Image
 import numpy as np
+import glob
+
 
 print("\nUsing Pillow \n ")
 image = Image.open("images/cat.jpg") 
@@ -142,9 +145,55 @@ cropped.show()
 
 
 # Rotaion of images
-rotated_image = cropped.rotate(45) # Will lost edges mean data lose
+
+rotated_image = cropped.rotate(45) # Will we lost edges mean data lose
 rotated_image.show()
 
-# Rotaion of images
+rotated_image = cropped.rotate(45, expand = False) # Will lost edges mean data lose
+rotated_image.show()
+
 rotated_image = cropped.rotate(45, expand = True) # Will NOT lost edges mean mean NO data lose
 rotated_image.show()
+
+# Flipping of Image
+Left_Right = cropped.transpose(Image.FLIP_LEFT_RIGHT) # Fliping Left to Right
+Left_Right.save("images/LR_copy_pasted_moon.jpg")
+Left_Right.show()
+
+Top_bottom = cropped.transpose(Image.FLIP_TOP_BOTTOM) # Fliping Top to Bottom
+Top_bottom.save("images/LR_copy_pasted_moon.jpg")
+Top_bottom.show()
+
+Transposed_image = cropped.transpose(Image.TRANSPOSE) # Fliping Top to Bottom
+Transposed_image.save("images/Transposed_image_pasted_moon.jpg")
+Transposed_image.show()
+
+Transvered_image = cropped.transpose(Image.TRANSPOSE) # Fliping Top to Bottom
+Transvered_image.save("images/Transvered_image_pasted_moon.jpg")
+Transvered_image.show()
+
+
+# changing color
+
+moon1 = Image.open("images/moon.jpg")
+moon2 = moon1.convert("L") # will change to Gray scale
+moon2.save("images/gray_moon.jpg")
+moon2.show()
+
+
+# changing color
+
+lion = Image.open("images/lion.jpg")
+gbr_lion = lion.convert("GBR") # will change to Gray scale
+gbr_lion.save("images/gbr_lion.jpg") # will give error
+gbr_lion.show()
+
+
+gbr_lion = lion.quantize(colors=256, method=2).convert('RGB')
+gbr_lion.save("images/gbr_lion.jpg") # solution of above error
+gbr_lion.show()
+
+
+# if you want to automate your task mean automate working with images
+
+

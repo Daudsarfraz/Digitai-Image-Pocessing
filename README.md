@@ -15,7 +15,7 @@ Learn and apply Digital Image Processing techniques with Python 3. The repositor
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/Digital-Image-Processing.git
+   git clone https://github.com/Daudsarfraz/Digital-Image-Processing.git
 
 2. **Navigate to the project directory:**
    ```bash
